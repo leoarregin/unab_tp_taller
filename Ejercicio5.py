@@ -6,6 +6,11 @@ class Persona:
     def get_nombre_completo(self):
         return f"{self.apellido}, {self.nombre}"
 
+class Autor(Persona):
+    def __init__ (self, apellido, nombre, nacionalidad):
+        super().__init__(nombre,apellido)
+        self.nacionalidad = nacionalidad
+    
 class Libro:
     def __init__(self, titulo, autor, isbn, paginas, edicion, editorial, ciudad, pais, fecha_edicion):
         self.titulo = titulo
@@ -99,10 +104,8 @@ class Libro:
 
 # --- Prueba del programa ---
 
-# 1. Crear autor
-autor_ejemplo = Persona("Y. Daniel", "Liang")
+autor_ejemplo = Autor("Y. Daniel", "Liang","Estadounidense")
 
-# 2. Crear libro con los datos del ejemplo
 libro_ejemplo = Libro(
     titulo="Introduction to Java Programming",
     autor=autor_ejemplo,
@@ -115,5 +118,4 @@ libro_ejemplo = Libro(
     fecha_edicion="viernes 16 de noviembre de 2001"
 )
 
-# 3. Mostrar la información formateada
 libro_ejemplo.mostrar_informacion()
